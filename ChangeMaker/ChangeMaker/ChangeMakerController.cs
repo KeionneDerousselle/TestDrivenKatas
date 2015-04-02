@@ -8,6 +8,21 @@ namespace ChangeMaker
 {
     public class ChangeMakerController
     {
+        private const int 
+            HUNDRED = 100,
+            FIFTY = 50,
+            TWENTY = 20,
+            TEN = 10,
+            FIVE = 5,
+            ONE = 1;
+
+        private readonly decimal
+            QUARTER = new decimal(.25),
+            DIME = new decimal(.10),
+            NICKEL = new decimal(.05),
+            PENNY = new decimal(.01);
+                                                           
+                          
         static void Main(string[] args)
         {
         }
@@ -16,58 +31,58 @@ namespace ChangeMaker
         {
             int hundreds = 0, fifties = 0, twenties = 0, tens = 0, fives = 0, ones = 0;
             decimal quarters = 0, dimes = 0, nickels = 0, pennies = 0;
-            if(amount >= 100)
+            if(amount >= HUNDRED)
             {
-                hundreds = ((int)amount) / 100;
+                hundreds = ((int)amount) / HUNDRED;
             }
-            decimal remainder = amount - (hundreds * 100);
+            decimal remainder = amount - (hundreds * HUNDRED);
 
-            if(remainder >= 50)
+            if(remainder >= FIFTY)
             {
-                fifties = ((int)remainder) / 50;
+                fifties = ((int)remainder) / FIFTY;
             }
-            remainder = remainder - (fifties * 50);
+            remainder = remainder - (fifties * FIFTY);
 
-            if(remainder >= 20)
+            if(remainder >= TWENTY)
             {
-                twenties = ((int)remainder) / 20;
+                twenties = ((int)remainder) / TWENTY;
             }
-            remainder = remainder - (twenties * 20);
-            if(remainder >= 10)
+            remainder = remainder - (twenties * TWENTY);
+            if(remainder >= TEN)
             {
-                tens = ((int)remainder) / 10;
+                tens = ((int)remainder) / TEN;
             }
-            remainder = remainder - (tens * 10);
-            if (remainder >= 5)
+            remainder = remainder - (tens * TEN);
+            if (remainder >= FIVE)
             {
-                fives = ((int)remainder) / 5;
+                fives = ((int)remainder) / FIVE;
             }
-            remainder = remainder - (fives * 5);
-            if (remainder >= 1)
+            remainder = remainder - (fives * FIVE);
+            if (remainder >= ONE)
             {
-                ones = ((int)remainder) / 1;
+                ones = ((int)remainder) / ONE;
             }
-            remainder = remainder - (ones * 1);
-            if (remainder >= ((decimal).25))
+            remainder = remainder - (ones * ONE);
+            if (remainder >= QUARTER)
             {
-                quarters = (int)(remainder / ((decimal).25));
+                quarters = (int)(remainder / QUARTER);
             }
-            remainder = remainder - (quarters * ((decimal).25));
-            if (remainder >= ((decimal).10))
+            remainder = remainder - (quarters * QUARTER);
+            if (remainder >= TEN)
             {
-                dimes = (int)(remainder / ((decimal).10));
+                dimes = (int)(remainder / TEN);
             }
-            remainder = remainder - (dimes * ((decimal).10));
-            if (remainder >= ((decimal).05))
+            remainder = remainder - (dimes * TEN);
+            if (remainder >= NICKEL)
             {
-                nickels = (int)(remainder / ((decimal).05));
+                nickels = (int)(remainder / NICKEL);
             }
-            remainder = remainder - (nickels * ((decimal).05));
-            if (remainder >= ((decimal).01))
+            remainder = remainder - (nickels * NICKEL);
+            if (remainder >= PENNY)
             {
-                pennies = (int)(remainder / ((decimal).01));
+                pennies = (int)(remainder / PENNY);
             }
-            remainder = remainder - (pennies * ((decimal).01));
+            remainder = remainder - (pennies * PENNY);
             return "100's: " + hundreds + ", 50's: " 
                 + fifties + ", 20's: " + twenties +
                 ", 10's: "+ tens+ ", 5's: " + fives
