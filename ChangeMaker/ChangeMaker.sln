@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeMaker", "ChangeMaker\ChangeMaker.csproj", "{60C49E1F-7E4C-40FC-8956-2D6D92B5204F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeMakerTests", "ChangeMakerTests\ChangeMakerTests.csproj", "{6255C75B-E837-4628-BC90-692301EBF9FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{19C04EAF-1CA0-4946-8966-284770DF75C5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{60C49E1F-7E4C-40FC-8956-2D6D92B5204F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60C49E1F-7E4C-40FC-8956-2D6D92B5204F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60C49E1F-7E4C-40FC-8956-2D6D92B5204F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6255C75B-E837-4628-BC90-692301EBF9FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6255C75B-E837-4628-BC90-692301EBF9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6255C75B-E837-4628-BC90-692301EBF9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6255C75B-E837-4628-BC90-692301EBF9FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60C49E1F-7E4C-40FC-8956-2D6D92B5204F}</ProjectGuid>
+    <ProjectGuid>{6255C75B-E837-4628-BC90-692301EBF9FB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChangeMaker</RootNamespace>
-    <AssemblyName>ChangeMaker</AssemblyName>
+    <RootNamespace>ChangeMakerTests</RootNamespace>
+    <AssemblyName>ChangeMakerTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,14 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeMakerController.cs" />
+    <Compile Include="ChangeMakerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ChangeMaker\ChangeMaker.csproj">
+      <Project>{60c49e1f-7e4c-40fc-8956-2d6d92b5204f}</Project>
+      <Name>ChangeMaker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace ChangeMaker
 {
-    class Program
+    public class ChangeMakerController
     {
         static void Main(string[] args)
         {
+        }
+
+        public string MakeChange(double amount)
+        {
+            throw new NotImplementedException();
         }
     }
 }
