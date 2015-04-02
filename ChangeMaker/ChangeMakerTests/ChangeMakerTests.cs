@@ -13,6 +13,12 @@ namespace ChangeMakerTests
     {
         private static ChangeMakerController changeMaker;
 
+        [SetUp]
+        public void Init()
+        {
+            changeMaker = new ChangeMakerController();
+        }
+
         [Test]
         public void TestMakeChange()
         {
@@ -21,6 +27,7 @@ namespace ChangeMakerTests
             string value = changeMaker.MakeChange(amount);
 
             Assert.AreEqual(change, value);
+            Assert.IsTrue(false);
         }
     }
 }
