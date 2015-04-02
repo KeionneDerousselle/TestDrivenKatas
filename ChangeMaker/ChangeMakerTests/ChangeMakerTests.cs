@@ -22,12 +22,11 @@ namespace ChangeMakerTests
         [Test]
         public void TestMakeChange()
         {
-            double amount = 427.57;
-            string change = "100's: 4, 50's:, 20's: 1, 10's:, 5's: 1, 1's: 2, .25's: 2, .10's:, .05's: 1, .01's: 2, ";
+            decimal amount = new decimal(427.57);
+            string change = "100's: 4, 50's: 0, 20's: 1, 10's: 0, 5's: 1, 1's: 2, .25's: 2, .10's: 0, .05's: 1, .01's: 2, ";
             string value = changeMaker.MakeChange(amount);
-
+            Console.WriteLine(value);
             Assert.AreEqual(change, value);
-            Assert.IsTrue(false);
         }
     }
 }
