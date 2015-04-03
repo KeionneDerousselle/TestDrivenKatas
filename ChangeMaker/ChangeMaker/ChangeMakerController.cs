@@ -22,74 +22,55 @@ namespace ChangeMaker
             NICKEL = new decimal(.05),
             PENNY = new decimal(.01);
                                                            
-                          
-        static void Main(string[] args)
-        {
-        }
-        //427.27
         public string MakeChange(decimal amount)
         {
-            int hundreds = 0, fifties = 0, twenties = 0, tens = 0, fives = 0, ones = 0;
-            decimal quarters = 0, dimes = 0, nickels = 0, pennies = 0;
-            if(amount >= HUNDRED)
-            {
-                hundreds = ((int)amount) / HUNDRED;
-            }
-            decimal remainder = amount - (hundreds * HUNDRED);
+            Change change = new Change(amount);
+            decimal remainder = amount;
 
-            if(remainder >= FIFTY)
-            {
-                fifties = ((int)remainder) / FIFTY;
-            }
-            remainder = remainder - (fifties * FIFTY);
+            change.Hundreds = FindOccurencesOfAmount(remainder, HUNDRED);
+            
+            change.Fifties = FindOccurencesOfAmount(remainder -= (change.Hundreds * HUNDRED), FIFTY);            
+          
+            change.Twenties = FindOccurencesOfAmount(remainder -= (change.Fifties * FIFTY), TWENTY);
+            
+            change.Tens = FindOccurencesOfAmount(remainder -= (change.Twenties * TWENTY), TEN);
 
-            if(remainder >= TWENTY)
+            change.Fives = FindOccurencesOfAmount(remainder -= (change.Tens * TEN), FIVE);           
+
+            change.Ones = FindOccurencesOfAmount(remainder -= (change.Fives * FIVE), ONE);
+            
+            change.Quarters = FindOccurencesOfAmount(remainder -= (change.Ones * ONE), QUARTER);
+            
+            change.Dimes = FindOccurencesOfAmount(remainder -= (change.Quarters * QUARTER), DIME);
+
+            change.Nickels = FindOccurencesOfAmount(remainder -= (change.Dimes * DIME), NICKEL);           
+
+            change.Pennies = FindOccurencesOfAmount(remainder -= (change.Nickels * NICKEL), PENNY);
+
+            return change.ToString();
+        }
+        private int FindOccurencesOfAmount(decimal currentAmount, int amountThatOccurs)
+        {
+            int occurences = 0;
+            if(currentAmount >= amountThatOccurs)
             {
-                twenties = ((int)remainder) / TWENTY;
+                occurences = ((int)currentAmount) / amountThatOccurs;
             }
-            remainder = remainder - (twenties * TWENTY);
-            if(remainder >= TEN)
+            return occurences;
+        }
+
+        private int FindOccurencesOfAmount(decimal currentAmount, decimal amountThatOccurs)
+        {
+            int occurences = 0;
+            if (currentAmount >= amountThatOccurs)
             {
-                tens = ((int)remainder) / TEN;
+                occurences = (int)(currentAmount / amountThatOccurs);
             }
-            remainder = remainder - (tens * TEN);
-            if (remainder >= FIVE)
-            {
-                fives = ((int)remainder) / FIVE;
-            }
-            remainder = remainder - (fives * FIVE);
-            if (remainder >= ONE)
-            {
-                ones = ((int)remainder) / ONE;
-            }
-            remainder = remainder - (ones * ONE);
-            if (remainder >= QUARTER)
-            {
-                quarters = (int)(remainder / QUARTER);
-            }
-            remainder = remainder - (quarters * QUARTER);
-            if (remainder >= TEN)
-            {
-                dimes = (int)(remainder / TEN);
-            }
-            remainder = remainder - (dimes * TEN);
-            if (remainder >= NICKEL)
-            {
-                nickels = (int)(remainder / NICKEL);
-            }
-            remainder = remainder - (nickels * NICKEL);
-            if (remainder >= PENNY)
-            {
-                pennies = (int)(remainder / PENNY);
-            }
-            remainder = remainder - (pennies * PENNY);
-            return "100's: " + hundreds + ", 50's: " 
-                + fifties + ", 20's: " + twenties +
-                ", 10's: "+ tens+ ", 5's: " + fives
-                + ", 1's: "+ ones+ ", .25's: " + 
-                quarters + ", .10's: " + dimes +
-                ", .05's: "+ nickels + ", .01's: "
-                + pennies +", ";
+            return occurences;
+        }
+        public static void Main(string[] args)
+        {
+
         }
     }
 }
